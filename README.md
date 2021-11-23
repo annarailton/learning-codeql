@@ -4,6 +4,12 @@ Repo containing everything as I grind out learning [CodeQL](https://codeql.githu
 
 There will be a JavaScript bias, certainly to begin with.
 
+## Setup
+
+Include the submodules, either by `git clone --recursive` or by `git submodule update --init --remote` after clone. 
+
+ Use `git submodule update --remote` regularly to keep the submodules up to date.
+
 ## Current plan of attack
 
 - [ ] [QL tutorials](https://codeql.github.com/docs/writing-codeql-queries/ql-tutorials/)
