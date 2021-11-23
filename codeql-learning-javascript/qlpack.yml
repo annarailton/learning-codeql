@@ -1,0 +1,5 @@
+# Change 'getting-started' to a user name or organization that you have write access to
+name: learning-codeql/codeql-tutorial-javascript
+version: 0.0.0
+dependencies:
+  codeql/javascript-all: "*"
