@@ -1,0 +1,7 @@
+name: learning-codeql/javascript-tests
+version: 0.0.0
+extractor: javascript
+dependencies:
+  learning-codeql/codeql-tutorial-javascript: "*"
+  codeql/javascript-all: "*"
+tests: .
