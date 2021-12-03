@@ -1,0 +1,4 @@
+WARNING: Unused predicate isBaldWithResult (/Users/annarailton/projects/learning-codeql/codeql-learning-javascript/src/01_tutorials/Find_the_thief.ql:15,9-25)
+WARNING: Unused predicate isOldestAggregate (/Users/annarailton/projects/learning-codeql/codeql-learning-javascript/src/01_tutorials/Find_the_thief.ql:35,11-28)
+WARNING: Unused predicate isOldestOrderedAggregate (/Users/annarailton/projects/learning-codeql/codeql-learning-javascript/src/01_tutorials/Find_the_thief.ql:47,11-35)
+| Hester |
