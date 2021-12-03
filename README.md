@@ -13,7 +13,7 @@ Include the submodules, either by `git clone --recursive` or by `git submodule u
 ## Current plan of attack
 
 - [ ] [QL tutorials](https://codeql.github.com/docs/writing-codeql-queries/ql-tutorials/)
-    * [ ] [Introduction to QL](https://codeql.github.com/docs/writing-codeql-queries/introduction-to-ql/)
+    * [x] [Introduction to QL](https://codeql.github.com/docs/writing-codeql-queries/introduction-to-ql/)
     * [ ] [Find the thief](https://codeql.github.com/docs/writing-codeql-queries/find-the-thief/)
     * [ ] [Catch the fire starter](https://codeql.github.com/docs/writing-codeql-queries/catch-the-fire-starter/)
     * [ ] [Crown the rightful heir](https://codeql.github.com/docs/writing-codeql-queries/crown-the-rightful-heir/)
