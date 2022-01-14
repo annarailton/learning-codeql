@@ -1,17 +1,17 @@
 /** Computes first 10 Fibonacci numbers */
 int idxLimit() { result = 10 }
 
-int getFibPredicate(int idx) {
-  idx <= idxLimit() and // avoid getting infinite result
-  (
-    result = 1 and idx = 0
-    or
-    result = 1 and idx = 1
-    or
-    result = getFib(idx - 1) + getFib(idx - 2) and
-    idx >= 2
-  )
-}
+// int getFibPredicate(int idx) {
+//   idx <= idxLimit() and // avoid getting infinite result
+//   (
+//     result = 1 and idx = 0
+//     or
+//     result = 1 and idx = 1
+//     or
+//     result = getFib(idx - 1) + getFib(idx - 2) and
+//     idx >= 2
+//   )
+// }
 
 class FibonacciNumber extends int {
   int idx;

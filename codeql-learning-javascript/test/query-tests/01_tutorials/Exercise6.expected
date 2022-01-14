@@ -1,4 +1,3 @@
-WARNING: Unused predicate getFibPredicate (/Users/annarailton/projects/learning-codeql/codeql-learning-javascript/src/01_tutorials/Exercise6.ql:4,5-20)
 | 0 | 1 |
 | 1 | 1 |
 | 2 | 2 |

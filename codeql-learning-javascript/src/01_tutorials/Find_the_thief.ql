@@ -2,21 +2,21 @@
 
 import tutorial
 
-/**
- * Predicate with a result (does not need `predicate` keyword, just the return tupe)
- *
- * Useage:
- *
- * from Person p
- * where isBaldWithResult(p) = true
- * select p
- */
-// Predicate with a result (does not need `predicate` keyword, just the return tupe)
-boolean isBaldWithResult(Person p) {
-  exists(p.getHairColor()) and result = false
-  or
-  not exists(p.getHairColor()) and result = true
-}
+// /**
+//  * Predicate with a result (does not need `predicate` keyword, just the return tupe)
+//  *
+//  * Useage:
+//  *
+//  * from Person p
+//  * where isBaldWithResult(p) = true
+//  * select p
+//  */
+// // Predicate with a result (does not need `predicate` keyword, just the return tupe)
+// boolean isBaldWithResult(Person p) {
+//   exists(p.getHairColor()) and result = false
+//   or
+//   not exists(p.getHairColor()) and result = true
+// }
 
 /**
  * Predicate without a result (needs keyword `predicate`)
@@ -31,20 +31,20 @@ predicate isBaldWithoutResult(Person p) { not exists(p.getHairColor()) }
 
 predicate isOldest(Person p) { not exists(Person q | p != q and q.getAge() > p.getAge()) }
 
-/** `isOldest` with an aggregate: https://codeql.github.com/docs/ql-language-reference/expressions/#aggregations */
-predicate isOldestAggregate(Person p) {
-  p.getAge() = max(int a | exists(Person q | q.getAge() = a) | a)
-}
+// /** `isOldest` with an aggregate: https://codeql.github.com/docs/ql-language-reference/expressions/#aggregations */
+// predicate isOldestAggregate(Person p) {
+//   p.getAge() = max(int a | exists(Person q | q.getAge() = a) | a)
+// }
 
-/**
- * `isOldest` with an ordered aggregate
- *
- * There are no restrictions on what people to consider so the `<logical formula>` clause in the
- * middle is empty
- *
- * <aggregate>(<variable declarations> | <logical formula> | <expression>)
- */
-predicate isOldestOrderedAggregate(Person p) { p = max(Person q | | q order by q.getAge()) }
+// /**
+//  * `isOldest` with an ordered aggregate
+//  *
+//  * There are no restrictions on what people to consider so the `<logical formula>` clause in the
+//  * middle is empty
+//  *
+//  * <aggregate>(<variable declarations> | <logical formula> | <expression>)
+//  */
+// predicate isOldestOrderedAggregate(Person p) { p = max(Person q | | q order by q.getAge()) }
 
 from Person t
 where
