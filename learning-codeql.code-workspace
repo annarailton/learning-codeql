@@ -5,10 +5,6 @@
         },
         {
             "path": "ql"
-        },
-        {
-            "name": "[bkimminich_juice-shop_e07059e source archive]",
-            "uri": "codeql-zip-archive://0-72/Users/annarailton/data/codeql_dbs/bkimminich_juice-shop_e07059e/src.zip"
         }
     ],
     "settings": {
