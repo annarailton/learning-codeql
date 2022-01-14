@@ -1,2 +1,6 @@
 # CodeQL compilation caches
 .cache/
+
+# CodeQL test files
+**/*.actual
+**/*.testproj
