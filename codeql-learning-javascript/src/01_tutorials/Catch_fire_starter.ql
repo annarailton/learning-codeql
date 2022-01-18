@@ -1,7 +1,5 @@
 /**
- * Code to solve the   *     from Person p
- *     where isSouthern(p)
- *     select puzzle https://codeql.github.com/docs/writing-codeql-queries/catch-the-fire-starter/
+ * Code to solve the puzzle https://codeql.github.com/docs/writing-codeql-queries/catch-the-fire-starter/
  */
 
 import tutorial
