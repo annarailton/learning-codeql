@@ -16,6 +16,11 @@
       - [characteristic predicate](#characteristic-predicate)
       - [infinite predicate](#infinite-predicate)
       - [database predicate](#database-predicate)
+    - [query](#query)
+    - [query predicate](#query-predicate)
+    - [query module](#query-module)
+    - [namespace](#namespace)
+    - [select clause](#select-clause)
 
 <!-- /MarkdownTOC -->
 
@@ -125,3 +130,60 @@ Each database contains tables expressing relations between values, which can be 
 For example, if a database contains a table for persons, you can write `persons(x, firstName, _, age)` to constrain `x`, `firstName`, and `age` to be the first, second, and fourth columns of rows in that table.
 
 They cannot be explicitly defined as they are defined by the underlying database. 
+
+### query
+
+Output of a QL program; evaluate to sets of results.
+
+There are two kinds of query:
+
+1. [Select clause](#select-clause)
+```codeql
+from /* ... variable declarations ... */
+where /* ... logical formula ... */
+select /* ... expressions ... */
+```
+2. [query predicate](#query-predicate) in that module's predicate [`namespace`](#namespace).
+
+### query predicate
+
+A [`non-member predicate`](#non-member-predicate) with a `query` annotation. Returns all the tuples that the [predicate](#predicate) evaluates to, *e.g.*
+```codeql
+query int getProduct(int x, int y) {
+  x = 3 and
+  y in [0 .. 2] and
+  result = x * y
+}
+```
+More useful than a [select clause](#select-clause) as can call predicate in other parts of the code, *e.g.*
+```codeql
+class MultipleOfThree extends int {
+  MultipleOfThree() { this = getProduct(_, _) }
+}
+```
+Can also put `query` in front a a predicate you're writing to debug it. 
+
+### query module
+
+Defined by a `.ql` file.
+
+- Cannot be imported
+- Must have at least one query in its [`namespace`](#namespace)
+
+### namespace
+
+### select clause
+
+Kind of query, usually found at the end of a `.ql` file.
+
+```codeql
+from /* ... variable declarations ... */
+where /* ... logical formula ... */
+select /* ... expressions ... */
+```
+
+- `from` and `where` are optional
+- can also include `as` keyword, followed by a name (gives label to results column)
+- can also include `order by` keywords, followed by name of results column. `asc` or `desc` can also be added. Determines order to display results
+
+Anonymous predicate, so cannot call it elsewhere (unlike a [query predicate](#query-predicate)).

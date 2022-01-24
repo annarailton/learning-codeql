@@ -20,7 +20,7 @@ Include the submodules, either by `git clone --recursive` or by `git submodule u
     * [ ] [Cross the river](https://codeql.github.com/docs/writing-codeql-queries/cross-the-river/) 
 - [ ] [QL language reference](https://codeql.github.com/docs/ql-language-reference/)
     * [x] Predicates
-    * [ ] Queries
+    * [x] Queries
     * [ ] Types
     * [ ] Modules
     * [ ] Aliases
