@@ -8,6 +8,8 @@
   - [built-ins](#built-ins)
   - [class](#class)
     - [class body](#class-body)
+    - [concrete class](#concrete-class)
+    - [abstract classes](#abstract-classes)
   - [control flow](#control-flow)
   - [declarative programming](#declarative-programming)
   - [imperative programming](#imperative-programming)
@@ -123,6 +125,26 @@ Body of a class can contain:
 - any number of [`member predicates`](#member-predicate)
 - any number of [`field`](#field) declarations
 
+### concrete class
+
+Defined by restricting the values in a larger type. Values in a concrete class are precisely those values in the intersection of the supertypes that also satisfy the [`characteristic predicate`](#characteristic-predicate).
+
+### abstract classes
+
+Union of subclasses; *i.e.* for a value to be in an abstract class, it must satisfy the characteristic predicate of the class itself and the [`characteristic predicate`](#characteristic-predicate) of a subclass. 
+
+Useful if you want to group multiple existing classes together under a common name. Can then define member predicates on all those classes. 
+
+Example: interested in identifying all expressions that can be interpreted as SQL queries. 
+
+```codeql
+abstract class SqlExpr extends Expr {
+  ...
+}
+```
+
+Then define various subclasses, one for each kind of database management system, *e.g.* `class PostgresSqlExpr extends SqlExpr`. The abstract class `SqlExpr` refers to all those different expressions. 
+
 ## control flow
 
 The order in which individual statements / instructions / function calls of an imperative program are executed / evaluated. A `control flow statement` is a statement that results in a choice of which of two or more paths to follow. 
@@ -137,7 +159,22 @@ A programming paradigm that uses statements to change a program's state. It focu
 
 ## field
 
-:warning: TODO
+Variables declared in the body of a class. A class can have any number of field (variable) within its body. 
+
+Similar to the variable `this`, fields must be constrained in the [`characteristic predicate`](#characteristic-predicate). 
+
+```codeql
+class SmallInt extends int {
+  SmallInt() { this = [1 .. 10] }
+}
+
+class DivisibleInt extends SmallInt {
+  SmallInt divisor;   // declaration of the field `divisor`
+  DivisibleInt() { this % divisor = 0 }
+
+  SmallInt getADivisor() { result = divisor }
+}
+```
 
 ## final
 
@@ -181,6 +218,7 @@ int getSuccessor(int i) {
 
 ### member predicate
 
+Predicates that only apply to members of a particular class. You call a member predicate on a value.
 
 ### characteristic predicate
 
